@@ -1,1 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados */
+
+body {
+  font-family: 'Arial', sans-serif; /* Puedes cambiar la fuente si lo deseas */
+}
+
+h1, h2, h3 {
+  margin-bottom: 1rem; /* Espacio entre títulos y párrafos */
+}
+
+header {
+  background-color: #4A5568; /* Color de fondo para el header */
+}
+
+footer {
+  background-color: #E2E8F0; /* Color de fondo para el footer */
+}
+
+/* Estilos para enlaces */
+a {
+  transition: color 0.3s; 
+}
+
+a:hover {
+  color: #696a6c; /* Color de enlace en hover */
+}
