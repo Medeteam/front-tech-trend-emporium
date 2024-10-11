@@ -31,3 +31,7 @@ a {
 a:hover {
   color: #696a6c; /* Color de enlace en hover */
 }
+
+.debug{
+  @apply border border-red-500
+}

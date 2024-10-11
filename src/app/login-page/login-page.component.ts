@@ -9,5 +9,10 @@ import { ButtonComponent } from '../components/shared/button/button.component';
   styleUrl: './login-page.component.css'
 })
 export class LoginPageComponent {
-
+  sayHi(){
+    console.log("Hello");    
+  }
+  sayBye(){
+    console.log("Bye");    
+  }
 }
