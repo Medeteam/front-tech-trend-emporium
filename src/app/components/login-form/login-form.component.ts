@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { ButtonComponent } from '../shared/button/button.component';
 
 @Component({
-  selector: 'app-login-page',
+  selector: 'app-login-form',
   standalone: true,
   imports: [ButtonComponent],
-  templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.css'
+  templateUrl: './login-form.component.html',
+  styleUrl: './login-form.component.css'
 })
-export class LoginPageComponent {
+export class LoginFormComponent {
   sayHi(){
     console.log("Hello");    
   }
