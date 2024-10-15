@@ -5,13 +5,19 @@ import { environment } from '../../environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ListproductsService {
 
   constructor() { }
   private http = inject(HttpClient);
-  private URLbase = environment.apiURL + 'store/products';
+  private URLbase = environment.apiURL + 'api/store/products';
 
   public getProducts(){
     return this.http.get<any>(this.URLbase);
   };
+
+  public getProductById(productId: string) {
+    return this.http.get<any>(`${this.URLbase}/${productId}`);
+  }
+  
 }
