@@ -9,7 +9,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ButtonComponent {
   @Input() width: 'small' | 'large' = 'small';
-  // @Input() color: 'primary' | 'secondary' = 'primary';
+  @Input() color: 'primary' | 'secondary' = 'primary';
   @Input() text: string = '';
   @Output() buttonClick = new EventEmitter<void>();
   
