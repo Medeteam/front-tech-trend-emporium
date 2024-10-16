@@ -1,0 +1,13 @@
+<!-- <ng-content [select]="[form]">
+  <app-login-page login></app-login-page>
+  <app-signup-page signup></app-signup-page>
+</ng-content> -->
+
+<ng-container>
+  @if (form === 'signup') {
+    <app-signup-page></app-signup-page>
+  }
+  @if (form === 'login') {
+    <app-login-page></app-login-page>
+  }
+</ng-container>

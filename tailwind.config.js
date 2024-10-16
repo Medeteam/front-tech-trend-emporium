@@ -11,7 +11,7 @@ module.exports = {
       colors:{
           antiWhite: '#F1F1F1',
           timberWolf: '#D7CDCC',
-          emerald: '#6DD2A5',
+          emeraldGreen: '#6DD2A5',
           uclaBlue: '#2274A5',
           smokyBlack: '#14110F'
         },

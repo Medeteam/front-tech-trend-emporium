@@ -1,0 +1,16 @@
+<section class="sm:flex min-h-full w-full">
+  <div class="flex sm:min-w-fit p-4 justify-center">
+    <ng-container>
+      @if (form === 'signup') {
+        <app-signup-form></app-signup-form>
+      }
+      @if (form === 'login') {
+        <app-login-form></app-login-form>
+      }
+    </ng-container>
+  </div>
+
+  <div class="hidden sm:flex items-center justify-center p-6 grow">
+    <img src="assets/techtrendemporiumlogo.jpg" alt="Tech trend emporium logo" class="object-cover">
+  </div>
+</section>

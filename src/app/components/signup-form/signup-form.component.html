@@ -1,0 +1,77 @@
+<div class="flex min-h-full flex-col rounded-md shadow-sm shadow-smokyBlack justify-center sm:mx-14 px-6 py-6 lg:px-10">
+  <div class="sm:mx-auto sm:w-72 sm:max-w-sm">
+    <h2 class="mt-2 text-2xl tracking-tight text-smokyBlack">Welcome !</h2>
+    <h2 class="mt-6 text-2xl font-bold leading-9 tracking-wide text-smokyBlack">Sign up</h2>
+    <h2 class="tracking-tight text-smokyBlack">Register to add items to your wishlist and make purchases</h2>
+  </div>
+
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
+    <form class="space-y-6" action="#" method="POST">
+      <div>
+        <label for="username" class="block text-sm font-medium leading-6 text-smokyBlack">Username</label>
+        <div class="mt-2">
+          <input id="username" name="username" type="text" placeholder="Enter your username"
+            required
+            class="block w-full rounded-md border-0 p-2 text-smokyBlack shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-uclaBlue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium leading-6 text-smokyBlack">Email</label>
+        <div class="mt-2">
+          <input id="email" name="email" type="email" placeholder="Enter your email"
+            required
+            class="block w-full rounded-md border-0 p-2 text-smokyBlack shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-uclaBlue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+
+      <div>
+        <label for="password" class="block text-sm font-medium leading-6 text-smokyBlack">Password</label>
+        <div class="mt-2">
+          <input id="password" name="password" type="password"
+            placeholder="Enter your password" required
+            class="block w-full rounded-md border-0 p-2 text-smokyBlack shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-uclaBlue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+
+      <div>
+        <label for="repeat-password" class="block text-sm font-medium leading-6 text-smokyBlack">Password</label>
+        <div class="mt-2">
+          <input id="repeat-password" name="repeat-password" type="password"
+            placeholder="Enter your password again" required
+            class="block w-full rounded-md border-0 p-2 text-smokyBlack shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-uclaBlue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+
+      <div>
+        <label for="question" class="block text-sm font-medium leading-6 text-smokyBlack">Security question</label>
+        <div class="mt-2">
+          <select name="question" id="question" class="block w-full rounded-md border-0 p-2 text-smokyBlack shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-uclaBlue sm:text-sm sm:leading-6" required>
+            <option value="" class="text-gray-400" disabled selected>Select your question</option>
+            <option value="Do you like chips?">Do you like chips?</option>
+            <option value="What's color?">What's color?</option>
+            <option value="Hello?">Hello?</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="answer" class="block text-sm font-medium leading-6 text-smokyBlack">Your answer</label>
+        <div class="mt-2">
+          <input id="answer" name="answer" type="text"
+            placeholder="Answer to Security question" required
+            class="block w-full rounded-md border-0 p-2 text-smokyBlack shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-uclaBlue sm:text-sm sm:leading-6">
+        </div>
+      </div>
+
+      <div>
+        <app-button width="large" color="primary" text="Sign up"  />
+      </div>
+    </form>
+
+    <p class="mt-10 text-center text-sm text-gray-500">
+      Alredy have an Account?
+      <a href="/login" class="font-semibold leading-6 text-uclaBlue hover:text-uclaBlue hover:underline">Log in</a>
+    </p>
+  </div>
+</div>
