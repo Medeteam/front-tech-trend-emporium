@@ -1,23 +1,29 @@
 <nav class="bg-smokyBlack text-white py-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <div class="flex items-center space-x-6">
-        <a href="" class="ml-5 text-3xl lg:font-bold hover:text-emerald">Tech Trend Emporium</a>
-        <a href="#" class="hover:underline hover:text-emerald">Shop List</a>
-        <a href="#" class="hover:underline hover:text-emerald">Wishlist</a>
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="flex items-center space-x-6">
+      <a href="/" class="ml-5 text-3xl lg:font-bold hover:text-emeraldGreen">Tech Trend Emporium</a>
+      <a href="/products" class="hover:underline hover:text-emeraldGreen">Shop List</a>
+      <a href="#" class="hover:underline hover:text-emeraldGreen">Wishlist</a>
 
-        <!-- Search Bar -->
-        <div class="relative">
-          <input type="text" class="rounded-lg px-4 py-2 bg-transparent text-white" placeholder="Search">
-          <button class="absolute right-2 top-1/2 transform -translate-y-1/2">
-            <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
-        </div>
+      <!-- Search Bar -->
+      <div class="relative">
+        <input 
+          type="text" 
+          class="rounded-lg px-4 py-2 bg-transparent text-white" 
+          placeholder="Search"
+          [(ngModel)]="searchTerm" 
+          (keydown.enter)="onSearch()"
+        >
+        <button (click)="onSearch()" class="absolute right-2 top-1/2 transform -translate-y-1/2">
+          <svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </button>
       </div>
-
-        <div class="mr-5 text-sm">
-          <a href="/login" class="hover:underline hover:text-emerald">Login</a>
-        </div>
     </div>
+
+    <div class="mr-5 text-sm">
+      <a href="/login" class="hover:underline hover:text-emeraldGreen">Login</a>
+    </div>
+  </div>
 </nav>
