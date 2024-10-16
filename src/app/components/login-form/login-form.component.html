@@ -7,12 +7,12 @@
   </div>
 
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="#" method="POST">
+    <form class="space-y-6" (ngSubmit)="login({username:username.value, password:password.value})">
       <div>
         <label for="username" class="block text-sm font-medium leading-6 text-smokyBlack">Username</label>
         <div class="mt-2">
           <input id="username" name="username" type="text" autocomplete="nickname" placeholder="Enter your username"
-            required
+            required #username
             class="block w-full rounded-md border-0 p-2 text-smokyBlack shadow-lg ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-uclaBlue sm:text-sm sm:leading-6">
         </div>
       </div>
@@ -21,7 +21,7 @@
         <label for="password" class="block text-sm font-medium leading-6 text-smokyBlack">Password</label>
         <div class="mt-2">
           <input id="password" name="password" type="password" autocomplete="current-password"
-            placeholder="Enter your password" required
+            placeholder="Enter your password" required #password
             class="block w-full rounded-md border-0 p-2 text-smokyBlack shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-uclaBlue sm:text-sm sm:leading-6">
         </div>
         <div class="mt-2 text-sm text-end">
@@ -30,7 +30,7 @@
       </div>
 
       <div>
-        <app-button width="large" color="primary" text="Log in" (buttonClick)='sayHi()' />
+        <app-button width="large" color="primary" text="Log in" (buttonClick)='login({username:username.value, password:password.value})' />
       </div>
     </form>
 
