@@ -4,6 +4,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 
+interface Product {
+  id: string;
+  title: string;
+  price: number;
+  category: string;
+  image: string;
+}
+
 @Component({
   selector: 'app-shop-list',
   standalone: true,
@@ -12,8 +20,8 @@ import { RouterModule, ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./shop-list.component.css']
 })
 export class ShopListComponent {
-  products: any[] = [];
-  filteredProducts: any[] = [];
+  products: Product[] = [];  
+  filteredProducts: Product[] = [];
   categories: string[] = [];
   searchTerm: string = ''; 
   selectedCategory: string = ''; 
@@ -26,26 +34,38 @@ export class ShopListComponent {
   ) {}
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      const category = params['category'] || '';  
+      const search = params['search'] || '';  
+
+      this.selectedCategory = category;
+      this.searchTerm = search;
+
+      this.fetchProducts(category, search);
+    });
+
     this.listproductsService.getProducts().subscribe({
-      next: (data) => {
-        this.products = data;
-        this.filteredProducts = data; 
+      next: (data: Product[]) => { 
         this.extractCategories(data);
+      },
+      error: (err) => {
+        console.error('Error al obtener las categorías:', err);
+      }
+    });
+  }
 
-        this.route.queryParams.subscribe(params => {
-          const category = params['category'];
-          const search = params['search'];
+  fetchProducts(category: string, search: string): void {
+    this.listproductsService.getProducts(category).subscribe({
+      next: (data: Product[]) => { 
+        this.products = data;
 
-          if (category) {
-            this.selectedCategory = category;
-          }
-
-          if (search) {
-            this.searchTerm = search;
-          }
-
-          this.applyFilters(); 
-        });
+        if (search) {
+          this.filteredProducts = data.filter((product: Product) => 
+            product.title.toLowerCase().includes(search.toLowerCase())
+          );
+        } else {
+          this.filteredProducts = data.slice(0, this.displayCount);
+        }
       },
       error: (err) => {
         console.error('Error al obtener los productos:', err);
@@ -53,7 +73,7 @@ export class ShopListComponent {
     });
   }
 
-  extractCategories(products: any[]) {
+  extractCategories(products: Product[]) {
     const categoriesSet = new Set(products.map(product => product.category));
     this.categories = Array.from(categoriesSet);
   }
@@ -67,34 +87,14 @@ export class ShopListComponent {
       queryParams: { category: this.selectedCategory || null },
       queryParamsHandling: 'merge'
     });
-
-    this.applyFilters();
-  }
-
-  applyFilters() {
-    let filtered = this.products;
-
-    if (this.selectedCategory) {
-      filtered = filtered.filter(product => product.category === this.selectedCategory);
-    }
-
-    if (this.searchTerm) {
-      filtered = filtered.filter(product => 
-        product.title.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    }
-
-    this.filteredProducts = filtered;
   }
 
   searchProducts() {
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: { search: this.searchTerm || null },
-      queryParamsHandling: 'merge' 
+      queryParamsHandling: 'merge'
     });
-
-    this.applyFilters(); 
   }
 
   sortProducts(event: Event) {
@@ -122,9 +122,27 @@ export class ShopListComponent {
 
   loadMoreProducts() {
     this.displayCount += 6;
+    this.filteredProducts = this.products.slice(0, this.displayCount);
   }
 
   loadLessProducts() {
-    this.displayCount = Math.max(this.displayCount - 6, 6); 
+    this.displayCount = Math.max(this.displayCount - 6, 6);
+    this.filteredProducts = this.products.slice(0, this.displayCount);
+  }
+
+  applyFilters() {
+    let filtered = this.products;
+
+    if (this.selectedCategory) {
+      filtered = filtered.filter(product => product.category === this.selectedCategory);
+    }
+
+    if (this.searchTerm) {
+      filtered = filtered.filter(product => 
+        product.title.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
+
+    this.filteredProducts = filtered.slice(0, this.displayCount);
   }
 }
