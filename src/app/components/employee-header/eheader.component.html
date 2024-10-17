@@ -1,4 +1,5 @@
-<nav class="bg-smokyBlack text-white py-4 ">
+<nav class="bg-smokyBlack text-white p-4 ">
+  <!-- Search Bar -->
   <div class="container mx-auto flex justify-between items-center gap-x-4">
     <div class="flex items-center space-x-6 mr-5">
       <a href="/" class="ml-5 text-2xl lg:text-3xl font-bold hover:text-emeraldGreen">Tech Trend Emporium</a>
@@ -7,8 +8,6 @@
       <a href="/products" class="hidden md:inline-block hover:underline hover:text-emeraldGreen ">Shop List</a>
       <a href="#" class="hidden md:inline-block hover:underline hover:text-emeraldGreen">Wishlist</a>
     </div>
-
-    <!-- Search Bar -->
     <div class="relative w-3/5 md:w-auto mt-1 md:mt-0 flex-1 md:flex-none">
       <!-- Search input for larger screens -->
       <input type="text"
@@ -16,15 +15,7 @@
         placeholder="Search" [(ngModel)]="searchTerm" (keydown.enter)="onSearch()">
     </div>
 
-    
-    <!-- Mobile Hamburger Menu -->
-    <div class="lg:hidden">
-      <button (click)="toggleMenu()" class="text-white focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-        </svg>
-      </button>
-    </div>
+
     <!--Mobile shopping cart-->
     <div class="lg:hidden flex items-center space-x-4">
       <a href="#" class="hover:underline hover:text-emerald flex items-center space-x-2">
@@ -38,6 +29,15 @@
         </svg>
         <span>0</span>
       </a>
+    </div>
+
+    <!-- Mobile Hamburger Menu -->
+    <div class="lg:hidden">
+      <button (click)="toggleMenu()" class="text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
     </div>
 
     <!-- User Actions and Cart for large screens -->
@@ -58,7 +58,7 @@
       <div class="mr-5 text-sm" *ngIf="isLoggedIn">
         <span>{{ username }}</span>
       </div>
-      <div class="mr-5 text-sm" *ngIf="!isLoggedIn">
+      <div class="mx-5 text-sm" *ngIf="!isLoggedIn">
         <a href="/login">Login</a>
       </div>
       <div class="mr-5 text-sm" *ngIf="isLoggedIn">
@@ -66,7 +66,7 @@
       </div>
 
       <!-- Employee Portal Button -->
-      <div class="whitespace-nowrap" *ngIf="isLoggedIn" >
+      <div class="whitespace-nowrap" *ngIf="isLoggedIn">
         <button class="bg-black text-white hover:bg-gray-800 px-7 py-2 text-sm rounded-md">
           Employee Portal
         </button>
@@ -77,12 +77,12 @@
   <!-- Mobile Dropdown Menu -->
   <div *ngIf="menuOpen" class="lg:hidden flex flex-col space-y-4 items-center mt-4 bg-zinc-900 p-4 mx-10 rounded-lg">
     <input type="text"
-        class="w-full rounded-lg px-4 py-2 bg-transparent text-white border border-white focus:outline-none"
-        placeholder="Search" [(ngModel)]="searchTerm" (keydown.enter)="onSearch()">
+      class="w-full rounded-lg px-4 py-2 bg-transparent text-white border border-white focus:outline-none"
+      placeholder="Search" [(ngModel)]="searchTerm" (keydown.enter)="onSearch()">
     <span>{{ username }}</span>
     <a href="#" class="hover:underline hover:text-emeraldGreen md:hidden">Shop List</a>
     <a href="#" class="hover:underline hover:text-emeraldGreen md:hidden">Wishlist</a>
-    <a href="/login" class="hover:underline hover:text-emeraldGreen" *ngIf="!isLoggedIn">Login</a>
+    <a href="/login" class="hover:underline hover:text-emeraldGreen " *ngIf="!isLoggedIn">Login</a>
     <a href="#" class="hover:underline hover:text-emeraldGreen" *ngIf="isLoggedIn">Logout</a>
     <button class="text-white hover:underline hover:text-emeraldGreen px-7 py-2 rounded-md " *ngIf="isLoggedIn">
       Employee Portal
