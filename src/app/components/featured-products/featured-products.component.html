@@ -1,0 +1,48 @@
+<section class="shadow-md">
+  <h2 class="text-center text-4xl font-bold mt-14">Featured products</h2>
+  <div class="flex items-center justify-center w-full h-full sm:py-8 px-4">
+    <div class="w-full relative flex items-center justify-center">
+      
+      <!-- Left Btn -->
+      <button aria-label="slide backward" class="absolute z-30 left-0 ml-8 hover:opacity-40 hover:ring-opacity-40" (click)="goPrev()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-left" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6DD2A5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M5 12l14 0" />
+          <path d="M5 12l4 4" />
+          <path d="M5 12l4 -4" />
+        </svg>
+      </button>
+      
+      <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+        <div id="slider" class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
+          
+          <!-- Products -->
+          <div *ngFor="let product of products" class="flex flex-shrink-0 relative w-[300px] sm:w-[400px] h-[500px]">
+            <a [routerLink]="['/products', product.id]" class="bg-white w-full h-full p-6 rounded-lg relative group overflow-hidden">
+
+                <img [src]="product.image" alt="{{ product.title }}" class="object-contain object-center w-full h-full transition-transform duration-300 group-hover:scale-105" />
+                
+                <div class="absolute inset-0 bg-antiWhite bg-opacity-30 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <h2 class="lg:text-xl leading-4 text-base font-bold lg:leading-5 text-smokyBlack">{{ product.category }}</h2>
+                  <div class="flex h-full items-end pb-6">
+                    <h3 class="text-xl lg:text-2xl font-semibold leading-5 lg:leading-6 text-smokyBlack">{{ product.title }}</h3>
+                  </div>
+                </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Rigth btn -->
+      <button aria-label="slide forward" class="absolute z-30 right-0 mr-8  hover:opacity-40 hover:ring-opacity-40" (click)="goNext()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-right" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#6DD2A5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M5 12l14 0" />
+          <path d="M15 16l4 -4" />
+          <path d="M15 8l4 4" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>

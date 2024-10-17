@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { ShopListComponent } from './components/shop-list/shop-list.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginPageComponent } from './login-page/login-page.component';
 
 export const routes: Routes = [
-    // { path: '/home', component: AppComponent},
+    { path: '', component: HomeComponent},
     {path: 'login',component: AuthLayoutComponent, data: {formType: 'login'}},
     {path: 'signup',component: AuthLayoutComponent, data: {formType: 'signup'}},
     {path: 'products',component:ShopListComponent},
