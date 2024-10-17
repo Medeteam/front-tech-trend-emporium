@@ -1,0 +1,93 @@
+<nav class="bg-smokyBlack text-white py-4 ">
+  <div class="container mx-auto flex justify-between items-center gap-x-4">
+    <div class="flex items-center space-x-6 mr-5">
+      <a href="/" class="ml-5 text-2xl lg:text-3xl font-bold hover:text-emeraldGreen">Tech Trend Emporium</a>
+
+      <!-- Shop List and Wishlist for medium/large screens -->
+      <a href="/products" class="hidden md:inline-block hover:underline hover:text-emeraldGreen ">Shop List</a>
+      <a href="#" class="hidden md:inline-block hover:underline hover:text-emeraldGreen">Wishlist</a>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="relative w-3/5 md:w-auto mt-1 md:mt-0 flex-1 md:flex-none">
+      <!-- Search input for larger screens -->
+      <input type="text"
+        class="hidden md:block w-1 md:w-64 lg:w-60 rounded-lg px-2 py-1 bg-transparent text-white border border-white focus:outline-none"
+        placeholder="Search" [(ngModel)]="searchTerm" (keydown.enter)="onSearch()">
+    </div>
+
+    
+    <!-- Mobile Hamburger Menu -->
+    <div class="lg:hidden">
+      <button (click)="toggleMenu()" class="text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+    <!--Mobile shopping cart-->
+    <div class="lg:hidden flex items-center space-x-4">
+      <a href="#" class="hover:underline hover:text-emerald flex items-center space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-bag" width="20" height="20"
+          viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
+          <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+        </svg>
+        <span>0</span>
+      </a>
+    </div>
+
+    <!-- User Actions and Cart for large screens -->
+    <div class="hidden lg:flex items-center space-x-4">
+      <a href="#" class="hover:underline hover:text-emerald flex items-center space-x-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-bag" width="20" height="20"
+          viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path
+            d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
+          <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
+        </svg>
+        <span>0</span>
+      </a>
+
+      <!-- Login/Logout based on state -->
+      <div class="mr-5 text-sm" *ngIf="isLoggedIn">
+        <span>{{ username }}</span>
+      </div>
+      <div class="mr-5 text-sm" *ngIf="!isLoggedIn">
+        <a href="/login">Login</a>
+      </div>
+      <div class="mr-5 text-sm" *ngIf="isLoggedIn">
+        <a href="" class="hover:underline hover:text-emerald">Logout</a>
+      </div>
+
+      <!-- Employee Portal Button -->
+      <div class="whitespace-nowrap" *ngIf="isLoggedIn" >
+        <button class="bg-black text-white hover:bg-gray-800 px-7 py-2 text-sm rounded-md">
+          Employee Portal
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div *ngIf="menuOpen" class="lg:hidden flex flex-col space-y-4 items-center mt-4 bg-zinc-900 p-4 mx-10 rounded-lg">
+    <input type="text"
+        class="w-full rounded-lg px-4 py-2 bg-transparent text-white border border-white focus:outline-none"
+        placeholder="Search" [(ngModel)]="searchTerm" (keydown.enter)="onSearch()">
+    <span>{{ username }}</span>
+    <a href="#" class="hover:underline hover:text-emeraldGreen md:hidden">Shop List</a>
+    <a href="#" class="hover:underline hover:text-emeraldGreen md:hidden">Wishlist</a>
+    <a href="/login" class="hover:underline hover:text-emeraldGreen" *ngIf="!isLoggedIn">Login</a>
+    <a href="#" class="hover:underline hover:text-emeraldGreen" *ngIf="isLoggedIn">Logout</a>
+    <button class="text-white hover:underline hover:text-emeraldGreen px-7 py-2 rounded-md " *ngIf="isLoggedIn">
+      Employee Portal
+    </button>
+    <span class="text-sm md:hidden font-bold">USD</span>
+    <a href="#" class="md:hidden text-sm font-bold hover:underline hover:text-smokyBlack">Support</a>
+  </div>
+</nav>
