@@ -67,7 +67,7 @@
       </div>
 
       <!-- Employee Portal Button -->
-      <div class="whitespace-nowrap" *ngIf="isLoggedIn">
+      <div class="whitespace-nowrap" *ngIf="isAdmin">
         <button class="bg-black text-white hover:bg-gray-800 px-7 py-2 text-sm rounded-md">
           Employee Portal
         </button>
@@ -78,14 +78,14 @@
   <!-- Mobile Dropdown Menu -->
   <div *ngIf="menuOpen" class="lg:hidden flex flex-col space-y-4 items-center mt-4 bg-zinc-900 p-4 mx-10 rounded-lg">
     <input type="text"
-      class="w-full rounded-lg px-4 py-2 bg-transparent text-white border border-white focus:outline-none"
+      class="md:hidden w-full rounded-lg px-4 py-2 bg-transparent text-white border border-white focus:outline-none"
       placeholder="Search" [(ngModel)]="searchTerm" (keydown.enter)="onSearch()">
     <span>{{ username }}</span>
     <a href="#" class="hover:underline hover:text-emeraldGreen md:hidden">Shop List</a>
     <a href="#" class="hover:underline hover:text-emeraldGreen md:hidden">Wishlist</a>
     <a href="/login" class="hover:underline hover:text-emeraldGreen " *ngIf="!isLoggedIn">Login</a>
     <a href="#" class="hover:underline hover:text-emeraldGreen" *ngIf="isLoggedIn" (click)="onLogout()" tabindex="0" (keydown.enter)="onLogout()">Logout</a>
-    <button class="text-white hover:underline hover:text-emeraldGreen px-7 py-2 rounded-md " *ngIf="isLoggedIn">
+    <button class="text-white hover:underline hover:text-emeraldGreen px-7 py-2 rounded-md " *ngIf="isAdmin">
       Employee Portal
     </button>
     <span class="text-sm md:hidden font-bold">USD</span>

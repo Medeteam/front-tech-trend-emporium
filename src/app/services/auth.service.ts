@@ -10,6 +10,10 @@ export class AuthService {
   getUser(): string | null {
     return localStorage.getItem('username') || null;
   }
+
+  getRole(): string {
+    return localStorage.getItem('role') ?? '';
+  }
  
   isLoggedIn(): boolean {
     return this.getUser() !== null;
@@ -20,8 +24,6 @@ export class AuthService {
   }
   logout() {
     this.currentUser = null;
-    localStorage.removeItem('username');
-    localStorage.removeItem('role');
-    localStorage.removeItem('userId');
+    localStorage.clear();
   }
 }
