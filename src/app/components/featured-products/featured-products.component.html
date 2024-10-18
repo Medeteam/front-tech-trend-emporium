@@ -18,9 +18,9 @@
           
           <!-- Products -->
           <div *ngFor="let product of products" class="flex flex-shrink-0 relative w-[300px] sm:w-[400px] h-[500px]">
-            <a [routerLink]="['/products', product.id]" class="bg-white w-full h-full p-6 rounded-lg relative group overflow-hidden">
+            <a [routerLink]="['/products', product.id]" class="bg-white w-full h-ful p-6 rounded-lg relative group overflow-hidden">
 
-                <img [src]="product.image" alt="{{ product.title }}" class="object-contain object-center w-full h-full transition-transform duration-300 group-hover:scale-105" />
+                <img [src]="product.image" alt="{{ product.title }}" class="object-contain object-center w-full h-full transition-transform duration-300 scale-105" />
                 
                 <div class="absolute inset-0 bg-antiWhite bg-opacity-30 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <h2 class="lg:text-xl leading-4 text-base font-bold lg:leading-5 text-smokyBlack">{{ product.category }}</h2>

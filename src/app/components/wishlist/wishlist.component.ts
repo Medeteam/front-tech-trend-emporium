@@ -17,7 +17,7 @@ export class WishlistComponent implements OnInit {
   userId: string;
 
   constructor(private wishlistService: WishlistService, private listproductService: ListproductsService) {
-    this.userId = localStorage.getItem('id') || ''; // Obtén el user_id del localStorage.
+    this.userId = localStorage.getItem('id') || ''; 
   }
 
   ngOnInit(): void {
@@ -28,9 +28,9 @@ export class WishlistComponent implements OnInit {
     if (this.userId) {
       this.wishlistService.getWishlist(this.userId).subscribe({
         next: (wishlist: any) => {
-          // Asegúrate de que productList es el array correcto que quieres usar
-          this.wishlistProductIds = wishlist.productList || []; // Reemplaza 'productlist' con 'productList' si es el caso
-          console.log("wishlistProductIds: ", this.wishlistProductIds); // Para verificar si se asigna correctamente
+
+          this.wishlistProductIds = wishlist.productList || [];
+          console.log("wishlistProductIds: ", this.wishlistProductIds); 
           this.loadWishlistProducts();
         },
         error: (err: any) => {
@@ -41,17 +41,17 @@ export class WishlistComponent implements OnInit {
   }
   
   loadWishlistProducts(): void {
-    console.log('wishlistProductIds:', this.wishlistProductIds); // Asegúrate de que el array contiene los IDs correctos
+    console.log('wishlistProductIds:', this.wishlistProductIds); 
     
     if (Array.isArray(this.wishlistProductIds)) {
       this.wishlistProductIds.forEach((productId) => {
-        console.log('Fetching product for ID:', productId); // Asegúrate de que se están buscando los IDs correctos
+        console.log('Fetching product for ID:', productId); 
   
         this.listproductService.getProductById(productId).subscribe({
           next: (product: any) => {
-            console.log('Product fetched:', product);  // Asegúrate de que los productos se están recibiendo correctamente
+            console.log('Product fetched:', product); 
             if (product) {
-              this.wishlistProducts.push(product); // Agregar el producto a la lista si se recibió correctamente
+              this.wishlistProducts.push(product); 
               console.log('Current wishlistProducts:', this.wishlistProducts); // Verificar el estado actual de los productos en la lista
             }
           },
@@ -65,4 +65,16 @@ export class WishlistComponent implements OnInit {
     }
   }
    
+  removeFromWishlist(productId: string): void {
+    if (this.userId) {
+      this.wishlistService.removeFromWishlist(this.userId, productId).subscribe({
+        next: () => {
+          this.wishlistProducts = this.wishlistProducts.filter(product => product.id !== productId);
+        },
+        error: (err: any) => {
+          console.error('Error removing product from wishlist: ', err);
+        }
+      });
+    }
+  }
 }
