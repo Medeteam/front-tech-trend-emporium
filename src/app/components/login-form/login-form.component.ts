@@ -28,9 +28,10 @@ export class LoginFormComponent {
     await this.loginService.login(loginData).subscribe(
       response => {
         console.log('Login successful', response);
-        const {username, role} = response;
+        const {username, role, id} = response;
         this.localStorageService.setItem('username', username);
         this.localStorageService.setItem('role', role);
+        this.localStorageService.setItem('id', id);
         this.router.navigate(['/']);
       },
       error => {
