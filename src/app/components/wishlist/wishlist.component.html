@@ -1,14 +1,44 @@
-<div *ngIf="wishlistProducts.length > 0; else emptyWishlist">
-    <div *ngFor="let product of wishlistProducts" class="wishlist-item">
-      <img [src]="product.image" alt="{{ product.title }}" class="product-image" />
-      <div class="product-info">
-        <h3>{{ product.title }}</h3>
-        <p>{{ product.price | currency }}</p>
+<div class="m-10">
+  <div class="grid gap-8">
+    <div *ngIf="wishlistProducts.length > 0; else emptyWishlist" class="space-y-6">
+      <!-- Iteración sobre los productos de la lista de deseos -->
+      <div *ngFor="let product of wishlistProducts" class="group flex flex-col sm:flex-row items-center overflow-hidden rounded-lg border border-gray-200 bg-white text-gray-800 shadow-lg hover:shadow-xl transition duration-300 ease-in-out">
+        
+        <!-- Imagen del producto con categoría flotante -->
+        <a href="#" class="w-full sm:w-1/3 text-left text-gray-600 hover:text-gray-700">
+          <div class="group relative h-56 w-full overflow-hidden p-5">
+            <img [src]="product.image" alt="{{ product.title }}" class="h-full w-full object-contain transition-transform duration-500 ease-in-out group-hover:scale-110" />
+          </div>
+        </a>
+
+        <!-- Detalles del producto -->
+        <div class="flex flex-col justify-between w-full sm:w-2/3 space-y-4 p-12">
+          <a href="#" class="text-lg font-bold leading-snug hover:text-gray-900">{{ product.title }}</a>
+          <p class="text-sm text-gray-500">{{ product.description }}</p>
+          <p class="text-base font-semibold text-gray-900">{{ product.price | currency }}</p>
+
+          <!-- Información adicional: stock, categoría, botón de ver producto y eliminar -->
+          <div class="flex flex-col sm:flex-row justify-between items-center">
+            <div class="flex flex-col sm:flex-row sm:space-x-2 text-sm font-medium">
+              <span class="rounded-full bg-green-100 px-3 py-1 text-green-700">Stock: {{ product.stock }}</span>
+              <span class="rounded-full bg-green-100 px-3 py-1 text-green-700 mt-2 sm:mt-0">{{ product.category }}</span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <a href="#" class="inline-block rounded-lg bg-uclaBlue text-white px-4 py-2 text-sm font-semibold transition-transform duration-300 hover:bg-blue-900 hover:scale-105 sm:ml-auto mt-4 sm:mt-0">
+                View Product
+              </a>
+              <button (click)="removeFromWishlist(product.id)" class="inline-block rounded-lg bg-red-600 text-white px-4 py-2 text-sm font-semibold transition-transform duration-300 hover:bg-red-800 hover:scale-105 sm:ml-auto mt-4 sm:mt-0">
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  
+
+  <!-- Mensaje cuando la lista está vacía -->
   <ng-template #emptyWishlist>
-    <p>Your wishlist is empty.</p>
+    <p class="text-center text-gray-600">Your wishlist is empty.</p>
   </ng-template>
-  
+</div>

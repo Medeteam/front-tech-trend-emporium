@@ -20,4 +20,10 @@ export class WishlistService {
     const url = `${this.URLbase}/${user}/wishlist`;
     return this.http.get<any>(url,{withCredentials:true});  
   }
+
+  public removeFromWishlist(user: string, productId: string): Observable<any> {
+    const url = `${this.URLbase}/${user}/wishlist/remove/${productId}`;
+    return this.http.delete(url,{withCredentials:true});
+  }
+
 }
