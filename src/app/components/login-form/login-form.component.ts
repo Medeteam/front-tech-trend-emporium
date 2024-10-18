@@ -41,6 +41,7 @@ export class LoginFormComponent {
         this.localStorageService.setItem('username', username);
         this.localStorageService.setItem('userId', id);
         this.localStorageService.setItem('role', role);
+        this.localStorageService.setItem('id', id);
         this.router.navigate(['/']);
       },
       error => {

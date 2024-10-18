@@ -3,6 +3,7 @@ import { ListproductsService } from '../../services/listproducts.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
+import { WishlistService } from '../../services/wishlist.service.service';
 
 interface Product {
   id: string;
@@ -28,7 +29,8 @@ export class ShopListComponent {
   displayCount: number = 6;
 
   constructor(
-    private listproductsService: ListproductsService, 
+    private listproductsService: ListproductsService,
+    private wishlistService: WishlistService, 
     private router: Router, 
     private route: ActivatedRoute 
   ) {}
@@ -144,5 +146,19 @@ export class ShopListComponent {
     }
 
     this.filteredProducts = filtered.slice(0, this.displayCount);
+  }
+
+  addToWishList(productId: string): void{
+    const user = localStorage.getItem('id');
+    if (user) {
+      this.wishlistService.addToWishList(user,productId).subscribe({
+        next:(response) => {
+          console.log('Product added to wishlist:', response);
+        },
+        error(err) {
+            console.log('cant load your wishlist:', err);
+        },
+      });
+    }
   }
 }

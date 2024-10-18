@@ -6,7 +6,8 @@
 
       <!-- Shop List and Wishlist for medium/large screens -->
       <a href="/products" class="hidden md:inline-block hover:underline hover:text-emeraldGreen ">Shop List</a>
-      <a href="#" class="hidden md:inline-block hover:underline hover:text-emeraldGreen">Wishlist</a>
+      <a *ngIf="isLoggedIn" href="/wishlist" class="hidden md:inline-block hover:underline hover:text-emeraldGreen">Wishlist</a>
+      <a *ngIf="!isLoggedIn" href="/login" class="hidden md:inline-block hover:underline hover:text-emeraldGreen">Wishlist</a>
     </div>
     <div class="relative w-3/5 md:w-auto mt-1 md:mt-0 flex-1 md:flex-none">
       <!-- Search input for larger screens -->
