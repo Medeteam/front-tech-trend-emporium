@@ -47,7 +47,7 @@ export class SignupFormComponent {
       return;
     }
     
-    const signupData = {
+    const signupData: Signup = {
       username,
       email,
       password,
