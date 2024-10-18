@@ -41,7 +41,9 @@ export class LoginFormComponent {
         this.localStorageService.setItem('username', username);
         this.localStorageService.setItem('userId', id);
         this.localStorageService.setItem('role', role);
-        this.router.navigate(['/']);
+        this.router.navigate(['/']).then(
+          () => {window.location.reload();}
+        );
       },
       error => {
         console.error('Login failed', error);

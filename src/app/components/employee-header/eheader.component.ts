@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common'; // Importa CommonModule para ten
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router'; // Importar Router para manejar la búsqueda
 import { FormsModule } from '@angular/forms';
+import { LogoutService } from '../../services/logout.service';
  
 @Component({
   selector: 'app-eheader',
@@ -18,7 +19,7 @@ export class HeaderComponent_1 implements OnInit {
   searchTerm: string = ''; // Variable para el término de búsqueda
   searchOpen = false;
  
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private logoutService: LogoutService) {}
  
   ngOnInit(): void {
     this.username = this.authService.getUser();
@@ -27,8 +28,17 @@ export class HeaderComponent_1 implements OnInit {
  
   onLogout() {
     this.authService.logout();
-    this.username = null;
-    this.isLoggedIn = false;
+    this.logoutService.logout().subscribe(
+      response => {
+        console.log('Logout successful', response);
+        this.username = null;
+        this.isLoggedIn = false;
+        window.location.reload();
+      },
+      error => {
+        console.error('Logout failed', error);
+      }
+    );
   }
  
   toggleMenu() {
