@@ -39,7 +39,7 @@ export class LoginFormComponent {
         console.log('Login successful', response);
         const {id, username, role} = response;
         this.localStorageService.setItem('username', username);
-        this.localStorageService.setItem('userId', id);
+        this.localStorageService.setItem('id', id);
         this.localStorageService.setItem('role', role);
         this.router.navigate(['/']).then(
           () => {window.location.reload();}
