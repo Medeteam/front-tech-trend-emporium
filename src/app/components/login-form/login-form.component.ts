@@ -4,31 +4,38 @@ import { LoginService } from '../../services/login.service';
 import { Login } from '../../interfaces/login';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { Router } from '@angular/router';
+import { SimpleAlertComponent } from '../shared/simple-alert/simple-alert.component';
+import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, SimpleAlertComponent],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
 })
 export class LoginFormComponent {
+  alertText: string = '';
+  alertType: 'success' | 'error' = 'error';
+
   constructor(
     private loginService: LoginService,
     private localStorageService: LocalStorageService,
     private router: Router
   ) {}
 
-  login(loginData: Login) {
-    this.loginService.login(loginData).subscribe(
+  async login(loginData: Login) {
+    await this.loginService.login(loginData).subscribe(
       response => {
         console.log('Login successful', response);
-        const {token, email, username} = response;
+        const {username, role} = response;
         this.localStorageService.setItem('username', username);
+        this.localStorageService.setItem('role', role);
         this.router.navigate(['/']);
       },
       error => {
         console.error('Login failed', error);
+        this.alertText = 'Credentials are not valid';
       }
     );
   }
