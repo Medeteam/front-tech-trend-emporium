@@ -6,7 +6,7 @@
   </div>
 
   <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="#" method="POST" (ngSubmit)="signup()">
+    <form class="space-y-6" (ngSubmit)="signup()" (keydown.enter)="signup()">
       <div>
         <label for="username" class="block text-sm font-medium leading-6 text-smokyBlack">Username</label>
         <div class="mt-2">
@@ -69,11 +69,13 @@
       </div>
     </form>
 
-    @if (alertText != '') {
-      <app-simple-alert [type]="alertType" [text]="alertText"></app-simple-alert>
-    }
+    <div class="h-12 mt-2">
+      @if (alertText != '') {
+        <app-simple-alert [type]="alertType" [text]="alertText"></app-simple-alert>
+      }
+    </div>
 
-    <p class="mt-10 text-center text-sm text-gray-500">
+    <p class="mt-2 text-center text-sm text-gray-500">
       Alredy have an Account?
       <a href="/login" class="font-semibold leading-6 text-uclaBlue hover:text-uclaBlue hover:underline">Log in</a>
     </p>
