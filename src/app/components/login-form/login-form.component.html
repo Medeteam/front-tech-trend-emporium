@@ -34,6 +34,9 @@
       </div>
     </form>
 
+    @if (alertText != '') {
+      <app-simple-alert [type]="alertType" [text]="alertText"></app-simple-alert>
+    }
     <p class="mt-10 text-center text-sm text-gray-500">
       Don't have any account?
       <a href="/signup" class="font-semibold leading-6 text-uclaBlue hover:text-uclaBlue hover:underline">Register</a>
