@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ButtonComponent } from '../shared/button/button.component';
 import { LoginService } from '../../services/login.service';
 import { Login } from '../../interfaces/login';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { Router } from '@angular/router';
 import { SimpleAlertComponent } from '../shared/simple-alert/simple-alert.component';
-import { catchError } from 'rxjs';
 
 @Component({
   selector: 'app-login-form',
@@ -15,6 +14,8 @@ import { catchError } from 'rxjs';
   styleUrl: './login-form.component.css'
 })
 export class LoginFormComponent {
+  @ViewChild('username') usernameInput!: ElementRef;
+  @ViewChild('password') passwordInput!: ElementRef;
   alertText: string = '';
   alertType: 'success' | 'error' = 'error';
 
@@ -24,12 +25,21 @@ export class LoginFormComponent {
     private router: Router
   ) {}
 
-  async login(loginData: Login) {
+  async login() {
+    const usernameText = this.usernameInput.nativeElement.value;
+    const passwordText = this.passwordInput.nativeElement.value;
+
+    const loginData: Login = {
+      username: usernameText,
+      password: passwordText
+    };
+
     await this.loginService.login(loginData).subscribe(
       response => {
         console.log('Login successful', response);
-        const {username, role, id} = response;
+        const {id, username, role} = response;
         this.localStorageService.setItem('username', username);
+        this.localStorageService.setItem('userId', id);
         this.localStorageService.setItem('role', role);
         this.localStorageService.setItem('id', id);
         this.router.navigate(['/']);

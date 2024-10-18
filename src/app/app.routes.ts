@@ -11,6 +11,7 @@ export const routes: Routes = [
     { path: '', component: HomeComponent},
     {path: 'login',component: AuthLayoutComponent, data: {formType: 'login'}},
     {path: 'signup',component: AuthLayoutComponent, data: {formType: 'signup'}},
+    {path: 'forgot-password',component: AuthLayoutComponent, data: {formType: 'forgot'}},
     {path: 'products',component:ShopListComponent},
     { path: 'products/:id', component: ProductDetailComponent }, 
     {path: 'wishlist',component: WishlistComponent}
