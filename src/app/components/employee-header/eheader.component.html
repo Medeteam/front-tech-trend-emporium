@@ -63,7 +63,7 @@
         <a href="/login">Login</a>
       </div>
       <div class="mr-5 text-sm" *ngIf="isLoggedIn">
-        <a href="" class="hover:underline hover:text-emerald">Logout</a>
+        <a href="#" class="hover:underline hover:text-emerald" (click)="onLogout()" tabindex="0" (keydown.enter)="onLogout()">Logout</a>
       </div>
 
       <!-- Employee Portal Button -->
@@ -84,7 +84,7 @@
     <a href="#" class="hover:underline hover:text-emeraldGreen md:hidden">Shop List</a>
     <a href="#" class="hover:underline hover:text-emeraldGreen md:hidden">Wishlist</a>
     <a href="/login" class="hover:underline hover:text-emeraldGreen " *ngIf="!isLoggedIn">Login</a>
-    <a href="#" class="hover:underline hover:text-emeraldGreen" *ngIf="isLoggedIn">Logout</a>
+    <a href="#" class="hover:underline hover:text-emeraldGreen" *ngIf="isLoggedIn" (click)="onLogout()" tabindex="0" (keydown.enter)="onLogout()">Logout</a>
     <button class="text-white hover:underline hover:text-emeraldGreen px-7 py-2 rounded-md " *ngIf="isLoggedIn">
       Employee Portal
     </button>

@@ -21,5 +21,7 @@ export class AuthService {
   logout() {
     this.currentUser = null;
     localStorage.removeItem('username');
+    localStorage.removeItem('role');
+    localStorage.removeItem('userId');
   }
 }
