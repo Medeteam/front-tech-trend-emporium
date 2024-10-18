@@ -4,7 +4,6 @@ import { AuthLayoutComponent } from './components/auth-layout/auth-layout.compon
 import { ShopListComponent } from './components/shop-list/shop-list.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginPageComponent } from './login-page/login-page.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 export const routes: Routes = [
