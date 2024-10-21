@@ -63,14 +63,12 @@
         <a href="/login">Login</a>
       </div>
       <div class="mr-5 text-sm" *ngIf="isLoggedIn">
-        <a href="#" class="hover:underline hover:text-emerald" (click)="onLogout()" tabindex="0" (keydown.enter)="onLogout()">Logout</a>
+        <a href="" class="hover:underline hover:text-emerald" (click)="onLogout()" tabindex="0" (keydown.enter)="onLogout()">Logout</a>
       </div>
 
       <!-- Employee Portal Button -->
       <div class="whitespace-nowrap" *ngIf="isAdmin">
-        <button class="bg-black text-white hover:bg-gray-800 px-7 py-2 text-sm rounded-md">
-          Employee Portal
-        </button>
+        <a href="/employee-portal" class="text-white hover:underline hover:text-emeraldGreen px-7 py-2 rounded-md ">Employee Portal</a>
       </div>
     </div>
   </div>
@@ -82,12 +80,10 @@
       placeholder="Search" [(ngModel)]="searchTerm" (keydown.enter)="onSearch()">
     <span>{{ username }}</span>
     <a href="#" class="hover:underline hover:text-emeraldGreen md:hidden">Shop List</a>
-    <a href="#" class="hover:underline hover:text-emeraldGreen md:hidden">Wishlist</a>
+    <a href="/wishlist" class="hover:underline hover:text-emeraldGreen md:hidden">Wishlist</a>
     <a href="/login" class="hover:underline hover:text-emeraldGreen " *ngIf="!isLoggedIn">Login</a>
-    <a href="#" class="hover:underline hover:text-emeraldGreen" *ngIf="isLoggedIn" (click)="onLogout()" tabindex="0" (keydown.enter)="onLogout()">Logout</a>
-    <button class="text-white hover:underline hover:text-emeraldGreen px-7 py-2 rounded-md " *ngIf="isAdmin">
-      Employee Portal
-    </button>
+    <a href="" class="hover:underline hover:text-emeraldGreen" *ngIf="isLoggedIn" (click)="onLogout()" tabindex="0" (keydown.enter)="onLogout()">Logout</a>
+    <a href="/employee-portal" class="text-white hover:underline hover:text-emeraldGreen px-7 py-2 rounded-md " *ngIf="isAdmin">Employee Portal</a>
     <span class="text-sm md:hidden font-bold">USD</span>
     <a href="#" class="md:hidden text-sm font-bold hover:underline hover:text-smokyBlack">Support</a>
   </div>

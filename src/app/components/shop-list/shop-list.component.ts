@@ -3,7 +3,8 @@ import { ListproductsService } from '../../services/listproducts.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
-import { WishlistService } from '../../services/wishlist.service.service';
+import { WishlistComponent } from '../wishlist/wishlist.component';
+import { WishlistButtonComponent } from '../shared/wishlist-button/wishlist-button.component';
 
 interface Product {
   id: string;
@@ -16,10 +17,11 @@ interface Product {
 @Component({
   selector: 'app-shop-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, WishlistComponent,WishlistButtonComponent],
   templateUrl: './shop-list.component.html',
   styleUrls: ['./shop-list.component.css']
 })
+
 export class ShopListComponent {
   products: Product[] = [];  
   filteredProducts: Product[] = [];
@@ -27,15 +29,17 @@ export class ShopListComponent {
   searchTerm: string = ''; 
   selectedCategory: string = ''; 
   displayCount: number = 6;
+  wishlistProductIds: string[] = [];
 
   constructor(
     private listproductsService: ListproductsService,
-    private wishlistService: WishlistService, 
     private router: Router, 
-    private route: ActivatedRoute 
+    private route: ActivatedRoute ,
   ) {}
 
   ngOnInit(): void {
+    const userId = localStorage.getItem('id');
+
     this.route.queryParams.subscribe(params => {
       const category = params['category'] || '';  
       const search = params['search'] || '';  
@@ -146,19 +150,5 @@ export class ShopListComponent {
     }
 
     this.filteredProducts = filtered.slice(0, this.displayCount);
-  }
-
-  addToWishList(productId: string): void{
-    const user = localStorage.getItem('id');
-    if (user) {
-      this.wishlistService.addToWishList(user,productId).subscribe({
-        next:(response) => {
-          console.log('Product added to wishlist:', response);
-        },
-        error(err) {
-            console.log('cant load your wishlist:', err);
-        },
-      });
-    }
   }
 }

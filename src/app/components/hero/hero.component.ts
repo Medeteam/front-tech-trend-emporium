@@ -9,4 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./hero.component.css']
 })
 export class HeroComponent{
+  isLoggedIn(): boolean { 
+    return !!localStorage.getItem('id');
+  }
 }
