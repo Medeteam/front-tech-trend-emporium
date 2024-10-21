@@ -1,13 +1,13 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-button',
+  selector: 'app-outlined-button',
   standalone: true,
   imports: [],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
+  templateUrl: './outlined-button.component.html',
+  styleUrl: './outlined-button.component.css'
 })
-export class ButtonComponent {
+export class OutlinedButtonComponent {
   @Input() width: 'small' | 'large' = 'small';
   @Input() height: 'big' | 'normal' = 'normal';
   @Input() color: 'primary' | 'secondary' = 'primary';

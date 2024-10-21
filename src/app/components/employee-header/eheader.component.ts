@@ -15,6 +15,7 @@ import { LogoutService } from '../../services/logout.service';
 export class HeaderComponent_1 implements OnInit {
   username: string | null = null;
   isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
   menuOpen: boolean = false;
   searchTerm: string = ''; // Variable para el término de búsqueda
   searchOpen = false;
@@ -25,6 +26,11 @@ export class HeaderComponent_1 implements OnInit {
   ngOnInit(): void {
     this.username = this.authService.getUser();
     this.isLoggedIn = this.authService.isLoggedIn();
+    if(this.authService.getRole() === 'Admin' || this.authService.getRole() === 'Employee'){
+      this.isAdmin = true;
+    }else{
+      this.isAdmin = false;
+    }
   }
   
   getUserId() {

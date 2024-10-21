@@ -1,0 +1,19 @@
+<section class="categories-section">
+  <h2 class="text-center text-4xl font-bold mt-14">Categories</h2>
+  <p class="text-center p-4 text-gray-500">
+    Explore our diverse range of categories. Find exactly what you're looking for, from tech gadgets to fashion and everything in between.
+  </p>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-2 p-4">
+    <div *ngFor="let category of categories" class="flex justify-center">
+      <div class="text-center">
+        <!-- Usar [queryParams] para pasar el valor de categoría en formato de query string -->
+        <a [routerLink]="['/products']" 
+           [queryParams]="{ category: category.name }"
+           class="inline-block px-6 py-3 mt-2 text-blue-700 bg-blue-100 rounded-lg hover:bg-blue-500 hover:text-white transition">
+          Explore {{ category.name }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
