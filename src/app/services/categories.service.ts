@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
+<<<<<<< HEAD
 import { CategoryRequest } from '../interfaces/category-request';
 import { Category } from '../interfaces/category';
+=======
+>>>>>>> 3e1b61d8b467b5c4762f45d975f8615860b716fb
 
 @Injectable({
   providedIn: 'root'
