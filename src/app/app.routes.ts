@@ -10,6 +10,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { UsersList } from './components/users-list/users-list.component';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
+import { CreateEmployeeFormComponent } from './components/create-employee-form/create-employee-form.component';
 import { FinalOrderComponent } from './components/final-order/final-order.component';
 import { CreateProductFormComponent } from './components/create-product-form/create-product-form.component';
 
@@ -26,6 +27,7 @@ export const routes: Routes = [
     {path: 'employee-portal/products', component: ProductsTableComponent},
     {path: 'employee-portal/users', component: UsersList},
     {path: 'order-confirmation', component: OrderConfirmationComponent},
+    {path: 'employee-portal/employees/create', component:CreateEmployeeFormComponent},
     {path: 'final-order', component: FinalOrderComponent},
     {path: 'employee-portal/products/create', component: CreateProductFormComponent}
 ];
