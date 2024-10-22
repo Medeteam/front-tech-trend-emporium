@@ -13,6 +13,11 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
 import { CreateEmployeeFormComponent } from './components/create-employee-form/create-employee-form.component';
 import { FinalOrderComponent } from './components/final-order/final-order.component';
 import { CreateProductFormComponent } from './components/create-product-form/create-product-form.component';
+<<<<<<< HEAD
+import { CreateCategoryFormComponent } from './components/create-category-form/create-category-form.component';
+import { CategoriesTableComponent } from './components/categories-table/categories-table.component';
+=======
+>>>>>>> 3e1b61d8b467b5c4762f45d975f8615860b716fb
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -24,12 +29,14 @@ export const routes: Routes = [
     {path: 'wishlist',component: WishlistComponent},
     {path: 'employee-portal', component: EmployeePortalComponent},
     {path: 'cart', component: CartComponent},
+    {path: 'order-confirmation', component: OrderConfirmationComponent},
+    {path: 'final-order', component: FinalOrderComponent},
     {path: 'employee-portal/products', component: ProductsTableComponent},
     {path: 'employee-portal/users', component: UsersList},
-    {path: 'order-confirmation', component: OrderConfirmationComponent},
-    {path: 'employee-portal/employees/create', component:CreateEmployeeFormComponent},
-    {path: 'final-order', component: FinalOrderComponent},
-    {path: 'employee-portal/products/create', component: CreateProductFormComponent}
+    {path: 'employee-portal/products/create', component: CreateProductFormComponent},
+    {path: 'employee-portal/categories', component: CategoriesTableComponent},
+    {path: 'employee-portal/categories/create', component: CreateCategoryFormComponent},
+    {path: 'employee-portal/employees/create', component:CreateEmployeeFormComponent}
 ];
 
 @NgModule({
