@@ -13,11 +13,8 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
 import { CreateEmployeeFormComponent } from './components/create-employee-form/create-employee-form.component';
 import { FinalOrderComponent } from './components/final-order/final-order.component';
 import { CreateProductFormComponent } from './components/create-product-form/create-product-form.component';
-<<<<<<< HEAD
-import { CreateCategoryFormComponent } from './components/create-category-form/create-category-form.component';
 import { CategoriesTableComponent } from './components/categories-table/categories-table.component';
-=======
->>>>>>> 3e1b61d8b467b5c4762f45d975f8615860b716fb
+import { CreateCategoryFormComponent } from './components/create-category-form/create-category-form.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
