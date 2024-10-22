@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ListproductsService } from '../../services/listproducts.service';  
+import { ProductsService } from '../../services/products.service';  
 @Component({
   selector: 'app-recent-products',
   standalone: true,
@@ -13,7 +13,7 @@ export class RecentProductsComponent implements OnInit {
   products: any[] = [];
 
 
-  private listProductsService = inject(ListproductsService);
+  private productsService = inject(ProductsService);
 
   ngOnInit(): void {
     this.fetchProducts();
@@ -21,7 +21,7 @@ export class RecentProductsComponent implements OnInit {
 
 
   fetchProducts(): void {
-    this.listProductsService.getProducts().subscribe((response: any) => {
+    this.productsService.getProducts().subscribe((response: any) => {
 
       this.products = response.sort((a: any, b: any) => {
         return new Date(b.created).getTime() - new Date(a.created).getTime();

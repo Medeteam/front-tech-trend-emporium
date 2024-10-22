@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListproductsService } from '../../services/listproducts.service';
+import { ProductsService } from '../../services/products.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -13,14 +13,14 @@ import { RouterModule } from '@angular/router';
 export class FeaturedProductsComponent implements OnInit {
   products: any[] = [];  // Aquí se almacenarán los productos con más reviews
 
-  constructor(private listproductsService: ListproductsService) {}
+  constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
     this.getTopReviewedProducts();
   }
 
   getTopReviewedProducts(): void {
-    this.listproductsService.getProducts().subscribe({
+    this.productsService.getProducts().subscribe({
       next: (response: any[]) => {
         // Ordenar los productos por la cantidad de reviews y tomar los primeros 3
         this.products = response.sort((a, b) => b.rating.count - a.rating.count).slice(0, 3);

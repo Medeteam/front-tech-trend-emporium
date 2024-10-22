@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { WishlistService } from '../../services/wishlist.service.service';
-import { ListproductsService } from '../../services/listproducts.service';
+import { ProductsService } from '../../services/products.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class WishlistComponent implements OnInit {
   wishlistProducts: any[] = [];
   userId: string;
 
-  constructor(private wishlistService: WishlistService, private listproductService: ListproductsService) {
+  constructor(private wishlistService: WishlistService, private productService: ProductsService) {
     this.userId = localStorage.getItem('id') || ''; 
   }
 
@@ -47,7 +47,7 @@ export class WishlistComponent implements OnInit {
       this.wishlistProductIds.forEach((productId) => {
         console.log('Fetching product for ID:', productId); 
   
-        this.listproductService.getProductById(productId).subscribe({
+        this.productService.getProductById(productId).subscribe({
           next: (product: any) => {
             console.log('Product fetched:', product); 
             if (product) {

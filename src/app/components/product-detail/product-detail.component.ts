@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { ListproductsService } from '../../services/listproducts.service';
+import { ProductsService } from '../../services/products.service';
 import { WishlistButtonComponent } from '../shared/wishlist-button/wishlist-button.component';
 import { CartButtonComponent } from '../shared/cart-button/cart-button.component';
 import { ReviewService } from '../../services/reviews.service';
@@ -24,7 +24,7 @@ export class ProductDetailComponent {
   username: string | null = null;  
   isAdmin: boolean = false;     
 
-  constructor(private route: ActivatedRoute,private productService: ListproductsService,private reviewService: ReviewService,private authService: AuthService) {}
+  constructor(private route: ActivatedRoute,private productService: ProductsService,private reviewService: ReviewService,private authService: AuthService) {}
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
