@@ -72,7 +72,13 @@
         </small>
       </div>
 
-      <app-button text="Create" color="secondary" width="large" />
+      <div class="h-12 mt-2">
+        @if (alertText != '') {
+          <app-simple-alert [type]="alertType" [text]="alertText"></app-simple-alert>
+        }
+      </div>
+
+      <app-button text="Create" color="secondary" width="large" (buttonClick)="createProduct()" />
 
     </form>
   </div>
