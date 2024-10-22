@@ -13,6 +13,7 @@ import { OrderConfirmationComponent } from './components/order-confirmation/orde
 import { FinalOrderComponent } from './components/final-order/final-order.component';
 import { CreateProductFormComponent } from './components/create-product-form/create-product-form.component';
 import { CreateCategoryFormComponent } from './components/create-category-form/create-category-form.component';
+import { CategoriesTableComponent } from './components/categories-table/categories-table.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent},
@@ -24,12 +25,12 @@ export const routes: Routes = [
     {path: 'wishlist',component: WishlistComponent},
     {path: 'employee-portal', component: EmployeePortalComponent},
     {path: 'cart', component: CartComponent},
-    {path: 'employee-portal/products', component: ProductsTableComponent},
-    {path: 'employee-portal/users', component: UsersList},
     {path: 'order-confirmation', component: OrderConfirmationComponent},
     { path: 'final-order', component: FinalOrderComponent},
+    {path: 'employee-portal/products', component: ProductsTableComponent},
+    {path: 'employee-portal/users', component: UsersList},
     {path: 'employee-portal/products/create', component: CreateProductFormComponent},
-    // {path: 'employee-portal/categories'},
+    {path: 'employee-portal/categories', component: CategoriesTableComponent},
     {path: 'employee-portal/categories/create', component: CreateCategoryFormComponent},
     // {path: 'employee-portal/employees/create'}
 ];

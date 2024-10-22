@@ -1,0 +1,70 @@
+<section class="flex flex-col py-6 px-4 gap-4">
+  <div class="flex gap-8 items-center justify-between sm:px-6">
+    <a href="/employee-portal" class="flex items-center start-0 hover:underline hover:text-emeraldGreen">
+      <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 6l-6 6l6 6" />
+      </svg>
+      <span>Back</span>
+    </a>
+    <span class="font-semibold mx-auto sm:font-bold sm:text-xl lg:text-2xl">Categories List</span>    
+  </div>
+  <div class="max-w-full">
+    <table class="w-full text-left border border-separate rounded border-slate-200" cellspacing="0">
+      <tbody>
+        <tr>
+          <th scope="col" class="hidden h-12 px-6 text-sm font-semibold border-l sm:table-cell first:border-l-0 stroke-slate-800 text-smokyBlack bg-slate-100">Id</th>
+          <th scope="col" class="hidden h-12 px-6 text-sm font-semibold border-l sm:table-cell first:border-l-0 stroke-slate-800 text-smokyBlack bg-slate-100">Name</th>
+          <th scope="col" class="hidden h-12 px-6 text-sm font-semibold border-l sm:table-cell first:border-l-0 stroke-slate-800 text-smokyBlack bg-slate-100">Description</th>
+          <th scope="col" class="hidden h-12 px-6 text-sm font-semibold border-l sm:table-cell first:border-l-0 stroke-slate-800 text-smokyBlack bg-slate-100">Actions</th>
+        </tr>
+        <tr *ngFor="let category of categoriesList; let i = index" 
+        [ngClass]="{'bg-stone-100': i % 2 === 0, 'bg-white': i % 2 !== 0}" class="block border-b sm:table-row last:border-b-0 border-slate-200 sm:border-none hover:bg-timberWolf">
+          <td data-th="Id" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{category.id | truncate:17}}</td>
+          <td data-th="Name" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{category.name}}</td>
+          <td data-th="Description" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{category.description}}</td>
+          <td data-th="Actions" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">
+            <div class="flex gap-2 flex-wrap md:flex-nowrap">
+              <!-- Component: Small primary button with icon  -->
+              <button (click)="openModal(category)" class="inline-flex items-center self-center justify-center h-8 gap-2 px-4 text-xs font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-cyan-500 hover:bg-cyan-600 focus:bg-cyan-700 disabled:cursor-not-allowed disabled:border-cyan-300 disabled:bg-cyan-300 disabled:shadow-none">
+                <span class="relative only:-mx-4">
+                  <span class="sr-only">Edit button</span>
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-edit">
+                      <title id="title-14">Edit</title>
+                      <desc id="desc-14">
+                        Click the button to edit the product information
+                      </desc>
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1" />
+                      <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z" />
+                      <path d="M16 5l3 3" />
+                    </svg>
+                </span>
+              </button>
+              <!-- End Small primary button with icon  -->
+              <button (click)="openConfirmModal(category.id)" class="inline-flex items-center self-center justify-center h-8 gap-2 px-4 text-xs font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-red-500 hover:bg-red-600 focus:bg-red-700 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300 disabled:shadow-none">
+                <span class="relative only:-mx-4">
+                  <span class="sr-only">Delete button</span>
+
+                  <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-trash">
+                    <title id="title-14">Delete</title>
+                    <desc id="desc-14">
+                      Click the button to delete the product
+                    </desc>
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 7l16 0" /><path d="M10 11l0 6" />
+                    <path d="M14 11l0 6" />
+                    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+                    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+                  </svg>
+                </span>
+              </button>
+            </div>
+          </td>          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-modal-category [isVisible]="isModalVisible" [category]="categoryToUpdate" (stateChange)="onStateChange($event)"></app-modal-category>
+  <app-modal-confirm-delete-category [isVisible]="isConfirmVisible" [idCategory]="idCategoryToDelete" (stateChange)="onConfirmStateChange($event)"></app-modal-confirm-delete-category>
+</section>
