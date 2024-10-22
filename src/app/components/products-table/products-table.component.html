@@ -21,7 +21,7 @@
         </tr>
         <tr *ngFor="let product of productsList; let i = index" 
         [ngClass]="{'bg-stone-100': i % 2 === 0, 'bg-white': i % 2 !== 0}" class="block border-b sm:table-row last:border-b-0 border-slate-200 sm:border-none hover:bg-timberWolf">
-          <td data-th="Id" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{product.id | truncate:8}}</td>
+          <td data-th="Id" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{product.id ?? '' | truncate:8}}</td>
           <td data-th="Title" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{product.title | truncate:60}}</td>
           <td data-th="Category" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{product.category}}</td>
           <td data-th="Price" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">${{product.price}}</td>
@@ -45,7 +45,7 @@
                 </span>
               </button>
               <!-- End Small primary button with icon  -->
-              <button (click)="openConfirmModal(product.id)" class="inline-flex items-center self-center justify-center h-8 gap-2 px-4 text-xs font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-red-500 hover:bg-red-600 focus:bg-red-700 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300 disabled:shadow-none">
+              <button (click)="openConfirmModal(product.id ?? '')" class="inline-flex items-center self-center justify-center h-8 gap-2 px-4 text-xs font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-red-500 hover:bg-red-600 focus:bg-red-700 disabled:cursor-not-allowed disabled:border-red-300 disabled:bg-red-300 disabled:shadow-none">
                 <span class="relative only:-mx-4">
                   <span class="sr-only">Delete button</span>
 
