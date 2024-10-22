@@ -28,6 +28,10 @@ export class ProductsService {
     return this.http.get<any>(`${this.URLBaseShopper}/${productId}`);
   }
 
+  public createProduct(data: Product){
+    return this.http.post<any>(this.URLBaseEmployees, data, {withCredentials: true});
+  }
+
   public updateProduct(data: Product){
     return this.http.put<any>(this.URLBaseEmployees, data, {withCredentials: true});
   }
