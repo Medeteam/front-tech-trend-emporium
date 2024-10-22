@@ -48,10 +48,8 @@ export class ModalProductComponent {
   }
 
   updateProduct(){
-    console.log("Button pressed");    
     const title = this.titleInput.nativeElement.value;
     const description = this.descriptionInput.nativeElement.value;
-    // const selectedQuestionIndex = this.questionSelect.nativeElement.selectedIndex;
     const category = this.categorySelect.nativeElement.options[this.categorySelect.nativeElement.selectedIndex].text;
     const price = this.pricedInput.nativeElement.value;
     const stock = this.stockInput.nativeElement.value;
