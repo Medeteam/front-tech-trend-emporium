@@ -53,10 +53,11 @@
           </button>
         </div>
       </div>
-  
-      <button class="w-full bg-uclaBlue text-white px-6 py-3 font-semibold rounded-lg hover:bg-blue-900 transition-colors mt-4">
-        Finalize Order
-      </button>
+      <a *ngIf="cartItems.length > 0" href="/order-confirmation">
+        <button class="w-full bg-uclaBlue text-white px-6 py-3 font-semibold rounded-lg hover:bg-blue-900 transition-colors mt-4">
+          Finalize Order
+        </button>
+      </a>
     </aside>
   
     <div class="col-span-2 order-2 md:order-1">
