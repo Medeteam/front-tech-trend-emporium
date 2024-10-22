@@ -1,6 +1,7 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { inject, Inject,Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
+import { CategoryRequest } from '../interfaces/category-request';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,9 @@ export class CategoriesService {
 
   public getCategories(){
     return this.http.get<any>(this.URLbase)
+  }
+
+  public createCategory(data: CategoryRequest){
+    return this.http.post<any>(this.URLbase, data, {withCredentials: true});
   }
 }
