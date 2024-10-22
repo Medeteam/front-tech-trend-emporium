@@ -11,6 +11,10 @@ TechTrendEmporium is a modern and highly customizable online store, developed us
 - Integrated modals for editing and creating products and categories.
 - Responsive design using Tailwind CSS.
 
+## Known errors
+
+- Sometimes the cookies are not correctly managed, so if you are testing the sign up/log in and some errors appear try **deleting your browser cookies**
+
 ## Prerequisites
 
 - **Node.js** v14 or higher
