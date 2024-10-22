@@ -10,6 +10,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { UsersList } from './components/users-list/users-list.component';
 import { ProductsTableComponent } from './components/products-table/products-table.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
+import { FinalOrderComponent } from './components/final-order/final-order.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent},
@@ -23,7 +24,8 @@ export const routes: Routes = [
     {path: 'cart', component: CartComponent},
     {path: 'employee-portal/products', component: ProductsTableComponent},
     {path: 'employee-portal/users', component: UsersList},
-    {path: 'order-confirmation', component: OrderConfirmationComponent}
+    {path: 'order-confirmation', component: OrderConfirmationComponent},
+    { path: 'final-order', component: FinalOrderComponent}
 ];
 
 @NgModule({
