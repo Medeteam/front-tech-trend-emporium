@@ -19,7 +19,7 @@
 
     <!--Mobile shopping cart-->
     <div class="lg:hidden flex items-center space-x-4">
-      <a href="#" class="hover:underline hover:text-emerald flex items-center space-x-2">
+      <a href="/cart" class="hover:underline hover:text-emerald flex items-center space-x-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-bag" width="20" height="20"
           viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
           stroke-linejoin="round">
@@ -28,7 +28,7 @@
             d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
           <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
         </svg>
-        <span>0</span>
+        <span>{{ cartItemCount }}</span>
       </a>
     </div>
 
@@ -43,7 +43,7 @@
 
     <!-- User Actions and Cart for large screens -->
     <div class="hidden lg:flex items-center space-x-4">
-      <a href="#" class="hover:underline hover:text-emerald flex items-center space-x-2">
+      <a href="/cart" class="hover:underline hover:text-emerald flex items-center space-x-2">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-bag" width="20" height="20"
           viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round"
           stroke-linejoin="round">
@@ -52,7 +52,7 @@
             d="M6.331 8h11.339a2 2 0 0 1 1.977 2.304l-1.255 8.152a3 3 0 0 1 -2.966 2.544h-6.852a3 3 0 0 1 -2.965 -2.544l-1.255 -8.152a2 2 0 0 1 1.977 -2.304z" />
           <path d="M9 11v-5a3 3 0 0 1 6 0v5" />
         </svg>
-        <span>0</span>
+        <span>{{ cartItemCount }}</span>
       </a>
 
       <!-- Login/Logout based on state -->
