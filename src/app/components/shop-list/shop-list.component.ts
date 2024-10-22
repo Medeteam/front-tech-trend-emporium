@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ListproductsService } from '../../services/listproducts.service';
+import { ProductsService } from '../../services/products.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, ActivatedRoute, Router } from '@angular/router';
@@ -32,7 +32,7 @@ export class ShopListComponent {
   wishlistProductIds: string[] = [];
 
   constructor(
-    private listproductsService: ListproductsService,
+    private productsService: ProductsService,
     private router: Router, 
     private route: ActivatedRoute ,
   ) {}
@@ -50,7 +50,7 @@ export class ShopListComponent {
       this.fetchProducts(category, search);
     });
 
-    this.listproductsService.getProducts().subscribe({
+    this.productsService.getProducts().subscribe({
       next: (data: Product[]) => { 
         this.extractCategories(data);
       },
@@ -61,7 +61,7 @@ export class ShopListComponent {
   }
 
   fetchProducts(category: string, search: string): void {
-    this.listproductsService.getProducts(category).subscribe({
+    this.productsService.getProducts(category).subscribe({
       next: (data: Product[]) => { 
         this.products = data;
 

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { ListproductsService } from '../../services/listproducts.service';
+import { ProductsService } from '../../services/products.service';
 import { WishlistButtonComponent } from '../shared/wishlist-button/wishlist-button.component';
 
 @Component({
@@ -16,7 +16,7 @@ export class ProductDetailComponent {
   
   constructor(
     private route: ActivatedRoute,
-    private productService: ListproductsService
+    private productService: ProductsService
   ) {}
 
   ngOnInit(): void {
