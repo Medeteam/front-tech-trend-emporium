@@ -1,0 +1,28 @@
+<section class="flex flex-col py-6 px-4 gap-4">
+  <div class="flex gap-8 items-center justify-between sm:px-6">
+    <div class="start-0">Back button</div>
+    <div class="font-semibold mx-auto sm:font-bold sm:text-xl lg:text-2xl">Users List</div>    
+  </div>
+  <div class="max-w-full">
+    <!-- Component: Responsive Table. Credits: WindUI -->
+    <table class="w-full text-left border border-separate rounded border-slate-200" cellspacing="0">
+      <tbody>
+        <tr>
+          <th scope="col" class="hidden h-12 px-6 text-sm font-semibold border-l sm:table-cell first:border-l-0 stroke-slate-800 text-smokyBlack bg-slate-100">UserID</th>
+          <th scope="col" class="hidden h-12 px-6 text-sm font-semibold border-l sm:table-cell first:border-l-0 stroke-slate-800 text-smokyBlack bg-slate-100">Username</th>
+          <th scope="col" class="hidden h-12 px-6 text-sm font-semibold border-l sm:table-cell first:border-l-0 stroke-slate-800 text-smokyBlack bg-slate-100">Email</th>
+          <th scope="col" class="hidden h-12 px-6 text-sm font-semibold border-l sm:table-cell first:border-l-0 stroke-slate-800 text-smokyBlack bg-slate-100">Role</th>
+        </tr>
+        <tr *ngFor="let user of userList; let i = index" 
+        [ngClass]="{'bg-stone-100': i % 2 === 0, 'bg-white': i % 2 !== 0}" class="block border-b sm:table-row last:border-b-0 border-slate-200 sm:border-none hover:bg-timberWolf">
+          <td data-th="UserID" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{user.user_id|truncate:8}}</td>
+          <td data-th="Username" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{user.username}}</td>
+          <td data-th="Email" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{user.email}}</td>
+          <td data-th="Role" class="before:w-24 before:inline-block before:font-semibold before:text-smokyBlack before:content-[attr(data-th)':'] sm:before:content-none flex items-center sm:table-cell h-12 px-6 text-sm transition duration-300 sm:border-t sm:border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-700 ">{{user.role}}</td>       
+        </tr>
+      </tbody>
+    </table>
+    <!-- End Responsive Table -->
+  </div>
+
+</section>

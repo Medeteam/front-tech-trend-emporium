@@ -6,7 +6,15 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { HomeComponent } from './components/home/home.component';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { EmployeePortalComponent } from './components/employee-portal/employee-portal.component';
+<<<<<<< HEAD
 import { ProductsTableComponent } from './components/products-table/products-table.component';
+<<<<<<< Updated upstream
+=======
+import { CartComponent } from './components/cart/cart.component';
+>>>>>>> 994f110ff30039d649bfb4e7f9e8259fd559ff39
+=======
+import { UsersList } from './components/users-list/users-list.component';
+>>>>>>> Stashed changes
 
 export const routes: Routes = [
     { path: '', component: HomeComponent},
@@ -17,7 +25,17 @@ export const routes: Routes = [
     { path: 'products/:id', component: ProductDetailComponent }, 
     {path: 'wishlist',component: WishlistComponent},
     {path: 'employee-portal', component: EmployeePortalComponent},
+<<<<<<< Updated upstream
+<<<<<<< HEAD
     {path: 'employee-portal/products', component: ProductsTableComponent}
+=======
+    {path: 'cart', component: CartComponent}
+>>>>>>> 994f110ff30039d649bfb4e7f9e8259fd559ff39
+=======
+    {path: 'employee-portal/products', component: ProductsTableComponent},
+    {path: 'employee-portal/users', component: UsersList}
+
+>>>>>>> Stashed changes
 ];
 
 @NgModule({

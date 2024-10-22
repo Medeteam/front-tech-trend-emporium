@@ -3,12 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ListproductsService } from '../../services/listproducts.service';
 import { Product } from '../../interfaces/product';
 import { TruncatePipe } from '../../pipes/truncate.pipe';
-import { ModalProductComponent } from '../modal-product/modal-product.component';
-
 @Component({
   selector: 'app-products-table',
   standalone: true,
-  imports: [CommonModule, TruncatePipe, ModalProductComponent],
+  imports: [CommonModule, TruncatePipe],
   templateUrl: './products-table.component.html',
   styleUrl: './products-table.component.css'
 })
