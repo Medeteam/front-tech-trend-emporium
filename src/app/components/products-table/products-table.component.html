@@ -9,7 +9,6 @@
     <span class="font-semibold mx-auto sm:font-bold sm:text-xl lg:text-2xl">Products List</span>    
   </div>
   <div class="max-w-full">
-    <!-- Component: Responsive Table. Credits: WindUI -->
     <table class="w-full text-left border border-separate rounded border-slate-200" cellspacing="0">
       <tbody>
         <tr>
@@ -68,7 +67,6 @@
         </tr>
       </tbody>
     </table>
-    <!-- End Responsive Table -->
   </div>
 
   <app-modal-product [isVisible]="isModalVisible" [product]="productToUpdate" (stateChange)="onStateChange($event)"></app-modal-product>

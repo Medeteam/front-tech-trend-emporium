@@ -1,0 +1,66 @@
+<section class="bg-white py-8 antialiased dark:bg-white md:py-16">
+    <form class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+        <div class="mx-auto max-w-3xl">
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-smokyBlack sm:text-2xl">Order summary</h2>
+
+            <div class="mt-6 sm:mt-8">
+                <div class="relative overflow-x-auto border-b border-gray-200 dark:border-gray-800">
+                    <table class="w-full text-left font-medium text-gray-900 dark:text-smokyBlack">
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+                            <tr *ngFor="let item of cart?.products">
+                                <td class="whitespace-normal py-4 md:w-[384px]">
+                                    <div class="flex flex-wrap items-center gap-4">
+                                        <img [src]="item.image" alt="{{item.title}}" class="h-10 w-10 object-contain" />
+                                        <span class="w-full md:w-auto">{{ item.title }}</span> 
+                                    </div>
+                                </td>
+                                <td class="p-4 text-base font-normal text-gray-900 dark:text-smokyBlack ml-7">x{{ item.quantity }}</td>
+                                <td class="p-4 text-right text-base font-bold text-gray-900 dark:text-smokyBlack">
+                                    {{ item.price | currency }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-4 space-y-6">
+                    <h4 class="text-xl font-semibold text-gray-900 dark:text-smokyBlack">Order summary</h4>
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <dl class="flex items-center justify-between gap-4">
+                                <dt class="text-smokyBlack dark:text-smokyBlack">Original price</dt>
+                                <dd class="text-base font-medium text-gray-900 dark:text-smokyBlack">{{ cart?.totalBeforeDiscount | currency }}</dd>
+                            </dl>
+                            <dl class="flex items-center justify-between gap-4">
+                                <dt class="text-smokyBlack dark:text-smokyBlack">Savings</dt>
+                                <dd class="text-base font-medium text-green-500">-{{ cart?.coupon?.discount | currency }}</dd>
+                            </dl>
+                            <dl class="flex items-center justify-between gap-4">
+                                <dt class="text-smokyBlack dark:text-smokyBlack">Shipping Cost</dt>
+                                <dd class="text-base font-medium text-gray-900 dark:text-smokyBlack">{{ cart?.shippingCost | currency }}</dd>
+                            </dl>
+                        </div>
+
+                        <dl class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
+                            <dt class="text-lg font-bold text-smokyBlack dark:text-smokyBlack">Total</dt>
+                            <dd class="text-lg font-bold text-gray-900 dark:text-white">{{ cart?.finalTotal | currency }}</dd>
+                        </dl>
+                    </div>
+
+                    <div class="gap-4 sm:flex sm:items-center">
+                        <a href="/products" class="w-full rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-blue-900 dark:bg-uclaBlue dark:text-white">
+                            <button type="button">
+                                Return to Shopping
+                            </button>
+                        </a>
+                        <a href="final-order" class="mt-4 flex w-full items-center justify-center rounded-lg bg-green-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-emeraldGreen sm:mt-0">
+                            <button type="button" (click)="confirmOrder()" >
+                                Confirm Order
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
