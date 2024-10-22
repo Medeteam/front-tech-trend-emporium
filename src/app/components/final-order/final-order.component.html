@@ -1,0 +1,15 @@
+<div class="flex justify-center items-center h-screen" *ngIf="loading">
+    <div class="flex flex-col items-center">
+      <div class="loader w-20 h-20 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin"></div>
+      <p class="mt-4 text-lg text-gray-700">Cargando...</p>
+    </div>
+  </div>
+  
+  <div class="flex justify-center items-center h-screen" *ngIf="messageVisible">
+    <div class="text-center">
+      <div class="text-green-600 text-6xl">✅</div>
+      <p class="text-2xl font-bold text-gray-800 mt-4">¡Su compra ha sido aceptada!</p>
+      <p class="mt-2 text-gray-600">Será redirigido a la página principal en breve...</p>
+    </div>
+  </div>
+  
