@@ -1,0 +1,33 @@
+<div *ngIf="isLoggedIn" class="w-full bg-white p-6 rounded-lg">
+    <h2 class="text-2xl font-bold mb-4">Add Your Review</h2>
+
+    <div class="mb-4 hidden">
+        <label for="name" class="block text-gray-700 font-semibold">Your Name</label>
+        <input type="text" id="name" [(ngModel)]="username" class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none" placeholder="Enter your name" readonly />
+    </div>
+
+    <div class="mb-4">
+        <label for="comment" class="block text-gray-700 font-semibold">Your Comment</label>
+        <textarea id="comment" [(ngModel)]="comment"
+            class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none" rows="4"
+            placeholder="Write your review here..."></textarea>
+    </div>
+
+    <div class="mb-4">
+        <label for="rate" class="block text-gray-700 font-semibold">Rating (1-5)</label>
+        <select id="rate" [(ngModel)]="rate"
+            class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none">
+            <option value="" disabled selected>Choose a rating</option>
+            <option *ngFor="let rating of [1, 2, 3, 4, 5]" [value]="rating">{{ rating }}</option>
+        </select>
+    </div>
+
+    <button (click)="submitReview()"
+        class="w-full bg-blue-500 text-white px-4 py-2 font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+        Submit Review
+    </button>
+</div>
+
+<div *ngIf="!isLoggedIn" class="w-full bg-white p-6 rounded-lg text-center font-extrabold">
+    <p class="text-gray-700">Please <a href="/login" class="text-blue-500 hover:underline">log in</a> to add a review.</p>
+</div>
