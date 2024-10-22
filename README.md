@@ -2,6 +2,12 @@
 
 TechTrendEmporium is a modern and highly customizable online store, developed using **Angular** and **Tailwind CSS**. This project provides a dynamic user interface for managing products, categories, and cart details, focusing on user experience and performance.
 
+
+## Demo video
+[Video Sustentacion TTE](https://endava-my.sharepoint.com/:v:/p/sebastian_arias/EZ0cNn77qtZAtstkxKw5B2EBfVtWtbcqFh9oM_WM01taTA?e=du1pKI)
+
+
+
 ## Key Features
 
 - Product listing and management.
